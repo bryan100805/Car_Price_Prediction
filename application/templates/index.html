@@ -1,0 +1,154 @@
+<!--Page that contains the prediction form-->
+
+<!-- Inherits from layout.html -->
+{% extends "layout.html" %}
+<!-- The block content replace the one encapsulated in layout.html -->
+{% block content %}
+
+<div class="container-fluid clearfix bg-light py-5">
+    <div class="row">
+        <div class = 'col-md-12'>
+            <h3 class="text-center">{{title}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <form name="frmPredict" action="/predict" method="post" novalidate>
+                {{form.hidden_tag()}}
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <fieldset class="form-group">
+                            <p class="form-group">
+                                {{form.car_brand.label}}<br>
+                                {{form.car_brand(class='form-control')}}
+                                {% for error in form.car_brand.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.aspiration.label}}<br>
+                                {{form.aspiration(class='form-control')}}
+                                {% for error in form.aspiration.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.citympg.label}}<br>
+                                {{form.citympg(class='form-control')}}
+                                {% for error in form.citympg.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.carlength.label}}<br>
+                                {{form.carlength(class='form-control')}}
+                                {% for error in form.carlength.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.curbweight.label}}<br>
+                                {{form.curbweight(class='form-control')}}
+                                {% for error in form.curbweight.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.horsepower.label}}<br>
+                                {{form.horsepower(class='form-control')}}
+                                {% for error in form.horsepower.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.wheelbase.label}}<br>
+                                {{form.wheelbase(class='form-control')}}
+                                {% for error in form.wheelbase.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.car_body.label}}<br>
+                                <div class="radio-border">
+                                    {% for subfield in form.car_body %}
+                                    <div class="form-check">
+                                        {{subfield(class='form-check-input')}}
+                                        {{subfield.label(class='form-check-label')}}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form.car_body.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <fieldset class="form-group">
+                            <p class="form-group">
+                                {{form.drive_wheel.label}}<br>
+                                {{form.drive_wheel(class='form-control')}}
+                                {% for error in form.drive_wheel.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.engine_type.label}}<br>
+                                {{form.engine_type(class='form-control')}}
+                                {% for error in form.engine_type.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.highwaympg.label}}<br>
+                                {{form.highwaympg(class='form-control')}}
+                                {% for error in form.highwaympg.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.carwidth.label}}<br>
+                                {{form.carwidth(class='form-control')}}
+                                {% for error in form.carwidth.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.enginesize.label}}<br>
+                                {{form.enginesize(class='form-control')}}
+                                {% for error in form.enginesize.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.boreratio.label}}<br>
+                                {{form.boreratio(class='form-control')}}
+                                {% for error in form.boreratio.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p class="form-group">
+                                {{form.cylinder_number.label}}<br>
+                                <div class="radio-border">
+                                    {% for subfield in form.cylinder_number %}
+                                    <div class="form-check">
+                                        {{subfield(class='form-check-input')}}
+                                        {{subfield.label(class='form-check-label')}}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form.cylinder_number.errors %}
+                                <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </p>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class ="row">
+                    {{form.submit(class='btn btn-outline-success form-control')}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
